@@ -1,4 +1,4 @@
-# Collins Kipkirui Lagat - Portfolio
+# Collins Kipkirui Lagat - [Portfolio](https://collinslagat.vercel.app/)
 
 A modern, futuristic portfolio website showcasing software engineering expertise and AI automation solutions.
 
