@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collins Kipkirui Lagat - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #D4AF37 #0A192F;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #0A192F;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #D4AF37;
+      border-radius: 4px;
+    }
+    
+    .font-orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+    
+    .font-inter {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+    }
+    
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes text-reveal {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+        filter: blur(10px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+        filter: blur(0);
+      }
+    }
+    
+    @keyframes slide-up {
+      from { 
+        opacity: 0; 
+        transform: translateY(50px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+    
+    @keyframes particle-float {
+      0% { transform: translateY(100%) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100%) rotate(720deg); opacity: 0; }
+    }
+    
+    @keyframes border-glow {
+      0%, 100% { border-color: rgba(212, 175, 55, 0.3); }
+      50% { border-color: rgba(212, 175, 55, 0.8); }
+    }
+    
+    @keyframes icon-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Per-letter typing / pop animation */
+    @keyframes letter-pop {
+      0% { opacity: 0; transform: translateY(12px) rotateX(-8deg) scale(0.98); filter: blur(4px); }
+      10% { opacity: 1; transform: translateY(0) rotateX(0) scale(1); filter: blur(0); }
+      70% { opacity: 1; transform: translateY(0) rotateX(0) scale(1); filter: blur(0); }
+      100% { opacity: 0; transform: translateY(6px) rotateX(-4deg) scale(0.99); filter: blur(2px); }
+    }
+
+    .typewriter {
+      display: inline-block;
+      white-space: pre;
+    }
+
+    .typewriter .char {
+      opacity: 0;
+      display: inline-block;
+      transform-origin: 50% 50%;
+      animation-name: letter-pop;
+      animation-duration: 3600ms; /* slower full cycle */
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .typewriter-link { color: inherit; text-decoration: none; }
+    .typewriter-link:focus { outline: 2px dashed rgba(212,175,55,0.4); outline-offset: 4px; }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-float-delay {
+      animation: float 6s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+    
+    .animate-pulse-glow {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradient-shift 8s ease infinite;
+    }
+    
+    .animate-text-reveal {
+      animation: text-reveal 1s ease-out forwards;
+    }
+    
+    .animate-slide-up {
+      animation: slide-up 0.8s ease-out forwards;
+    }
+    
+    .animate-border-glow {
+      animation: border-glow 2s ease-in-out infinite;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-800 { animation-delay: 0.8s; }
+    
+    .glass-card {
+      background: rgba(10, 25, 47, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    
+    .glass-card:hover {
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+    }
+    
+    .gold-gradient {
+      background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+    }
+    
+    .purple-gradient {
+      background: linear-gradient(135deg, #6A0DAD 0%, #9B59B6 50%, #6A0DAD 100%);
+    }
+    
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #D4AF37, #F4D03F, #D4AF37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .text-gradient-purple {
+      background: linear-gradient(135deg, #6A0DAD, #9B59B6, #6A0DAD);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-bg {
+      background: linear-gradient(135deg, #0A192F 0%, #000000 50%, #0A192F 100%);
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #D4AF37;
+      border-radius: 50%;
+      animation: particle-float 15s linear infinite;
+    }
+    
+    .skill-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+    
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    }
+    
+    .timeline-line {
+      background: linear-gradient(180deg, #D4AF37 0%, #6A0DAD 100%);
+    }
+    
+    .section-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #D4AF37;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .project-card {
+      transform-style: preserve-3d;
+      transition: all 0.5s ease;
+    }
+    
+    .project-card:hover {
+      transform: perspective(1000px) rotateY(5deg) translateZ(20px);
+    }
+    
+    .icon-container {
+      transition: all 0.3s ease;
+    }
+    
+    .icon-container:hover {
+      animation: icon-bounce 0.5s ease;
+      color: #D4AF37;
+    }
+    
+    .hobby-card {
+      transition: all 0.4s ease;
+    }
+    
+    .hobby-card:hover {
+      background: rgba(106, 13, 173, 0.3);
+      transform: scale(1.05);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="h-full font-inter">
+  <div id="app-wrapper" class="w-full h-full overflow-auto bg-[#0A192F]">
+    
+    <!-- Floating Particles Background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+      <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+      <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+      <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+      <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+      <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
+      <div class="particle" style="left: 60%; animation-delay: 10s;"></div>
+      <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
+      <div class="particle" style="left: 80%; animation-delay: 1s;"></div>
+      <div class="particle" style="left: 90%; animation-delay: 3s;"></div>
+      <div class="particle" style="left: 15%; animation-delay: 5s;"></div>
+      <div class="particle" style="left: 25%; animation-delay: 7s;"></div>
+      <div class="particle" style="left: 35%; animation-delay: 9s;"></div>
+      <div class="particle" style="left: 45%; animation-delay: 11s;"></div>
+      <div class="particle" style="left: 55%; animation-delay: 13s;"></div>
+      <div class="particle" style="left: 65%; animation-delay: 14s;"></div>
+      <div class="particle" style="left: 75%; animation-delay: 0.5s;"></div>
+      <div class="particle" style="left: 85%; animation-delay: 2.5s;"></div>
+      <div class="particle" style="left: 95%; animation-delay: 4.5s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-t-0 border-l-0 border-r-0">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="#hero" class="hover:scale-110 transition-transform">
+            <img src="images/icon.png" alt="Collins Kipkirui Lagat" class="h-10 w-10 object-contain">
+          </a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#about" class="nav-link text-white/80 hover:text-white transition-colors text-sm font-medium">About</a>
+            <a href="#skills" class="nav-link text-white/80 hover:text-white transition-colors text-sm font-medium">Skills</a>
+            <a href="#experience" class="nav-link text-white/80 hover:text-white transition-colors text-sm font-medium">Experience</a>
+            <a href="#projects" class="nav-link text-white/80 hover:text-white transition-colors text-sm font-medium">Projects</a>
+            <a href="#education" class="nav-link text-white/80 hover:text-white transition-colors text-sm font-medium">Education</a>
+            <a href="#contact" class="btn-primary gold-gradient text-black px-6 py-2 rounded-full text-sm font-semibold">Contact</a>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 space-y-4">
+          <a href="#about" class="block text-white/80 hover:text-white transition-colors">About</a>
+          <a href="#skills" class="block text-white/80 hover:text-white transition-colors">Skills</a>
+          <a href="#experience" class="block text-white/80 hover:text-white transition-colors">Experience</a>
+          <a href="#projects" class="block text-white/80 hover:text-white transition-colors">Projects</a>
+          <a href="#education" class="block text-white/80 hover:text-white transition-colors">Education</a>
+          <a href="#contact" class="block text-[#D4AF37] font-semibold">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center hero-bg overflow-hidden">
+      <!-- Animated Background Elements -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-[#6A0DAD]/20 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl animate-float-delay"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#D4AF37]/10 rounded-full animate-spin" style="animation-duration: 60s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-[#6A0DAD]/20 rounded-full animate-spin" style="animation-duration: 40s; animation-direction: reverse;"></div>
+      </div>
+      
+      <div class="relative z-10 text-center px-6 py-20 max-w-5xl mx-auto">
+        <!-- Pre-title -->
+        <div class="animate-text-reveal opacity-0 delay-100">
+          <span class="inline-block px-4 py-2 text-sm font-medium text-[#D4AF37] border border-[#D4AF37]/30 rounded-full mb-8 animate-border-glow">
+            Software Engineer • AI Automation Expert
+          </span>
+        </div>
+        
+        <!-- Name -->
+        <h1 class="font-orbitron text-4xl sm:text-5xl md:text-7xl font-black text-white mb-4 animate-text-reveal opacity-0 delay-200">
+          <span id="hero-name">COLLINS KIPKIRUI</span>
+        </h1>
+        <h1 class="font-orbitron text-4xl sm:text-5xl md:text-7xl font-black text-gradient-gold mb-8 animate-text-reveal opacity-0 delay-300">
+          LAGAT
+        </h1>
+        
+        <!-- Titles (animated per-letter) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 animate-text-reveal opacity-0 delay-400">
+          <span class="glass-card px-6 py-3 rounded-full text-white font-medium">
+            <span class="typewriter" data-text="Software Engineer"></span>
+          </span>
+          <span class="hidden sm:block text-[#D4AF37]">•</span>
+          <span class="glass-card px-6 py-3 rounded-full text-white font-medium flex items-center gap-2">
+            <span class="typewriter" data-text="Co-Founder – "></span>
+            <a href="https://www.theeentityke.com" target="_blank" rel="noopener noreferrer" class="typewriter-link" aria-label="Visit Thee Entity website">
+              <span class="typewriter" data-text="Thee Entity"></span>
+            </a>
+          </span>
+        </div>
+        
+        <!-- Tagline -->
+        <p id="hero-tagline" class="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed animate-text-reveal opacity-0 delay-500">
+          "Building scalable AI-driven software solutions that help businesses automate, grow, and innovate."
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-text-reveal opacity-0 delay-600">
+          <a href="#projects" class="btn-primary gold-gradient text-black px-8 py-4 rounded-full font-bold text-lg animate-pulse-glow">
+            View Projects
+          </a>
+          <a href="#contact" class="btn-primary glass-card text-white px-8 py-4 rounded-full font-bold text-lg border border-[#D4AF37]/50 hover:border-[#D4AF37]">
+            Contact Me
+          </a>
+          <a href="docs/Collins%20Kipkirui%20Lagat%20CV.docx" download="Collins_Kipkirui_Lagat_CV.docx" class="btn-primary glass-card text-white px-8 py-4 rounded-full font-bold text-lg border border-[#6A0DAD]/50 hover:border-[#6A0DAD]">
+            Download CV
+          </a>
+        </div>
+        
+        <!-- Contact Icons -->
+        <div class="flex flex-wrap items-center justify-center gap-6 animate-text-reveal opacity-0 delay-700">
+          <a href="tel:0708889016" class="icon-container flex items-center gap-2 text-white/60 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <span id="contact-phone" class="text-sm">0708889016</span>
+          </a>
+          <a href="mailto:collinslagat1901@gmail.com" class="icon-container flex items-center gap-2 text-white/60 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span id="contact-email" class="text-sm">collinslagat1901@gmail.com</span>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="icon-container flex items-center gap-2 text-white/60 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <span class="text-sm">Portfolio</span>
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="icon-container flex items-center gap-2 text-white/60 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span class="text-sm">GitHub</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="icon-container flex items-center gap-2 text-white/60 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            <span class="text-sm">LinkedIn</span>
+          </a>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <a href="#about" class="text-white/40 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="relative py-24 px-6 bg-black">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="text-[#D4AF37] font-medium text-sm tracking-widest uppercase">Get to Know Me</span>
+          <h2 class="font-orbitron text-4xl md:text-5xl font-bold text-white mt-4">About Me</h2>
+          <div class="w-24 h-1 gold-gradient mx-auto mt-6 rounded-full"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Profile Image -->
+          <div class="relative">
+            <div class="relative w-80 h-80 mx-auto">
+              <!-- Decorative Elements -->
+              <div class="absolute -inset-4 border-2 border-[#D4AF37]/30 rounded-2xl animate-spin" style="animation-duration: 20s;"></div>
+              <div class="absolute -inset-8 border border-[#6A0DAD]/20 rounded-2xl"></div>
+              <!-- Profile Placeholder -->
+              <div class="relative w-full h-full glass-card rounded-2xl overflow-hidden flex items-center justify-center">
+                <div class="text-center">
+                  <img src="images/profile.jpg" alt="Collins Kipkirui Lagat" class="w-56 h-56 mx-auto mb-4 rounded-full object-cover border-2 border-[#D4AF37]">
+                  <p class="text-white/60 text-sm">Software Engineer</p>
+                </div>
+                <!-- Floating Tech Icons -->
+                <div class="absolute top-4 right-4 text-2xl animate-float">💻</div>
+                <div class="absolute bottom-4 left-4 text-2xl animate-float-delay">🤖</div>
+                <div class="absolute top-1/2 right-4 text-xl animate-float" style="animation-delay: 1s;">⚡</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- About Content -->
+          <div class="space-y-6">
+            <p id="about-summary" class="text-lg text-white/80 leading-relaxed">
+              Software Engineer and Co-Founder with proven experience designing and developing real-world software and automation solutions. Skilled in full-stack development, DevOps infrastructure, and AI product engineering. Focused on building scalable digital tools that save time, reduce operational costs, and help SMEs adopt technology efficiently.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="glass-card p-4 rounded-xl text-center">
+                <span class="text-3xl font-bold text-gradient-gold">3+</span>
+                <p class="text-white/60 text-sm mt-1">Years Experience</p>
+              </div>
+              <div class="glass-card p-4 rounded-xl text-center">
+                <span class="text-3xl font-bold text-gradient-purple">5+</span>
+                <p class="text-white/60 text-sm mt-1">Projects Delivered</p>
+              </div>
+              <div class="glass-card p-4 rounded-xl text-center">
+                <span class="text-3xl font-bold text-gradient-gold">10+</span>
+                <p class="text-white/60 text-sm mt-1">Tech Skills</p>
+              </div>
+              <div class="glass-card p-4 rounded-xl text-center">
+                <span class="text-3xl font-bold text-gradient-purple">AI</span>
+                <p class="text-white/60 text-sm mt-1">Automation Expert</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills" class="relative py-24 px-6 bg-[#0A192F]">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="text-[#D4AF37] font-medium text-sm tracking-widest uppercase">What I Work With</span>
+          <h2 class="font-orbitron text-4xl md:text-5xl font-bold text-white mt-4">Technical Skills</h2>
+          <div class="w-24 h-1 gold-gradient mx-auto mt-6 rounded-full"></div>
+        </div>
+        
+        <div class="grid gap-8">
+          <!-- Programming Languages -->
+          <div class="glass-card p-8 rounded-2xl skill-card">
+            <h3 class="font-orbitron text-xl font-bold text-gradient-gold mb-6 flex items-center gap-3">
+              <span class="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center text-black">💻</span>
+              Programming Languages
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">JavaScript</span>
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">TypeScript</span>
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">Java</span>
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">C++</span>
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">C#</span>
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">Visual Basic</span>
+            </div>
+          </div>
+          
+          <!-- Frameworks & Libraries -->
+          <div class="glass-card p-8 rounded-2xl skill-card">
+            <h3 class="font-orbitron text-xl font-bold text-gradient-purple mb-6 flex items-center gap-3">
+              <span class="w-10 h-10 rounded-lg purple-gradient flex items-center justify-center text-white">⚛️</span>
+              Frameworks & Libraries
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-[#6A0DAD]/10 border border-[#6A0DAD]/30 rounded-full text-white text-sm hover:bg-[#6A0DAD]/20 transition-colors cursor-default">React.js</span>
+              <span class="px-4 py-2 bg-[#6A0DAD]/10 border border-[#6A0DAD]/30 rounded-full text-white text-sm hover:bg-[#6A0DAD]/20 transition-colors cursor-default">Next.js</span>
+              <span class="px-4 py-2 bg-[#6A0DAD]/10 border border-[#6A0DAD]/30 rounded-full text-white text-sm hover:bg-[#6A0DAD]/20 transition-colors cursor-default">Tailwind CSS</span>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- DevOps & Infrastructure -->
+            <div class="glass-card p-8 rounded-2xl skill-card">
+              <h3 class="font-orbitron text-lg font-bold text-gradient-gold mb-6 flex items-center gap-3">
+                <span class="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center text-black">🔧</span>
+                DevOps & Infrastructure
+              </h3>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">Docker</span>
+                <span class="px-3 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">Jenkins</span>
+                <span class="px-3 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">Kubernetes</span>
+                <span class="px-3 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">CI/CD</span>
+                <span class="px-3 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">Linux</span>
+                <span class="px-3 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">Git</span>
+              </div>
+            </div>
+            
+            <!-- Backend & Databases -->
+            <div class="glass-card p-8 rounded-2xl skill-card">
+              <h3 class="font-orbitron text-lg font-bold text-gradient-purple mb-6 flex items-center gap-3">
+                <span class="w-10 h-10 rounded-lg purple-gradient flex items-center justify-center text-white">🗄️</span>
+                Backend & Databases
+              </h3>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-2 bg-[#6A0DAD]/10 border border-[#6A0DAD]/30 rounded-full text-white text-sm hover:bg-[#6A0DAD]/20 transition-colors cursor-default">Firebase</span>
+                <span class="px-3 py-2 bg-[#6A0DAD]/10 border border-[#6A0DAD]/30 rounded-full text-white text-sm hover:bg-[#6A0DAD]/20 transition-colors cursor-default">Supabase</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- AI & Automation -->
+          <div class="glass-card p-8 rounded-2xl skill-card border-2 border-[#D4AF37]/30">
+            <h3 class="font-orbitron text-xl font-bold text-gradient-gold mb-6 flex items-center gap-3">
+              <span class="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center text-black">🤖</span>
+              AI & Automation
+              <span class="ml-auto text-xs px-3 py-1 bg-[#D4AF37]/20 rounded-full text-[#D4AF37]">SPECIALTY</span>
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">AI Workflow Automation</span>
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">AI Agents Optimization</span>
+              <span class="px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-white text-sm hover:bg-[#D4AF37]/20 transition-colors cursor-default">AI Chat Assistants</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE SECTION -->
+    <section id="experience" class="relative py-24 px-6 bg-black">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="text-[#D4AF37] font-medium text-sm tracking-widest uppercase">My Journey</span>
+          <h2 class="font-orbitron text-4xl md:text-5xl font-bold text-white mt-4">Work Experience</h2>
+          <div class="w-24 h-1 gold-gradient mx-auto mt-6 rounded-full"></div>
+        </div>
+        
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 timeline-line rounded-full transform md:-translate-x-1/2"></div>
+          
+          <!-- Experience 1 -->
+          <div class="relative mb-12 md:mb-16">
+            <div class="flex flex-col md:flex-row items-start gap-8">
+              <div class="md:w-1/2 md:text-right md:pr-12">
+                <span class="inline-block px-4 py-1 gold-gradient text-black text-sm font-bold rounded-full mb-4">2025 – Present</span>
+                <h3 class="font-orbitron text-2xl font-bold text-white mb-2">Co-Founder</h3>
+                <p class="text-gradient-purple font-semibold text-lg mb-4">Thee Entity – AI Automation Start-Up</p>
+              </div>
+              <div class="absolute left-0 md:left-1/2 w-6 h-6 gold-gradient rounded-full transform md:-translate-x-1/2 border-4 border-black z-10"></div>
+              <div class="md:w-1/2 md:pl-12 pl-8">
+                <div class="glass-card p-6 rounded-xl">
+                  <h4 class="text-[#D4AF37] font-semibold mb-4">Key Achievements:</h4>
+                  <ul class="space-y-3 text-white/80">
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Developed AI-driven automation systems for SMEs
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Built platforms: QuickPrint, StockFlow, Mavuno Insight (Prototype)
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Successfully pitched innovation solutions to national leadership
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Expanded company reach by launching Entity Cyber Café
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Experience 2 -->
+          <div class="relative mb-12 md:mb-16">
+            <div class="flex flex-col md:flex-row-reverse items-start gap-8">
+              <div class="md:w-1/2 md:text-left md:pl-12">
+                <span class="inline-block px-4 py-1 gold-gradient text-black text-sm font-bold rounded-full mb-4">2025</span>
+                <h3 class="font-orbitron text-2xl font-bold text-white mb-2">Mobile Development Team Lead</h3>
+                <p class="text-gradient-gold font-semibold text-lg mb-4">Mama Kitchen Garden Project</p>
+              </div>
+              <div class="absolute left-0 md:left-1/2 w-6 h-6 gold-gradient rounded-full transform md:-translate-x-1/2 border-4 border-black z-10"></div>
+              <div class="md:w-1/2 md:pr-12 md:text-right pl-8 md:pl-0">
+                <div class="glass-card p-6 rounded-xl">
+                  <h4 class="text-[#D4AF37] font-semibold mb-4 md:text-right">Key Achievements:</h4>
+                  <ul class="space-y-3 text-white/80">
+                    <li class="flex items-start gap-2 md:flex-row-reverse md:text-right">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Accomplished leadership of mobile development execution
+                    </li>
+                    <li class="flex items-start gap-2 md:flex-row-reverse md:text-right">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Coordinated smart farming tools for women and youth empowerment
+                    </li>
+                    <li class="flex items-start gap-2 md:flex-row-reverse md:text-right">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Delivered successful prototype progress
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 3 -->
+          <div class="relative mb-12 md:mb-16">
+            <div class="flex flex-col md:flex-row items-start gap-8">
+              <div class="md:w-1/2 md:text-right md:pr-12">
+                <span class="inline-block px-4 py-1 purple-gradient text-white text-sm font-bold rounded-full mb-4">2025 – August</span>
+                <h3 class="font-orbitron text-2xl font-bold text-white mb-2">Tech Hub Lead</h3>
+                <p class="text-gradient-purple font-semibold text-lg mb-4">Umma Tech Hub</p>
+              </div>
+              <div class="absolute left-0 md:left-1/2 w-6 h-6 purple-gradient rounded-full transform md:-translate-x-1/2 border-4 border-black z-10"></div>
+              <div class="md:w-1/2 md:pl-12 pl-8">
+                <div class="glass-card p-6 rounded-xl">
+                  <h4 class="text-[#6A0DAD] font-semibold mb-4">Key Achievements:</h4>
+                  <ul class="space-y-3 text-white/80">
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#6A0DAD] mt-1">▸</span>
+                      Accomplished growth of student innovation participation
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#6A0DAD] mt-1">▸</span>
+                      Sponsored 3 student projects at national-level competitions
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#6A0DAD] mt-1">▸</span>
+                      Organized participation in Pwani Innovation Hackathon (Mombasa)
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#6A0DAD] mt-1">▸</span>
+                      Led "Evolving Tech Careers in the Age of AI and Automation" with 200+ attendees
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 4 -->
+          <div class="relative mb-12 md:mb-16">
+            <div class="flex flex-col md:flex-row-reverse items-start gap-8">
+              <div class="md:w-1/2 md:text-left md:pl-12">
+                <span class="inline-block px-4 py-1 gold-gradient text-black text-sm font-bold rounded-full mb-4">2022 – Present</span>
+                <h3 class="font-orbitron text-2xl font-bold text-white mb-2">Technical Official</h3>
+                <p class="text-gradient-gold font-semibold text-lg mb-4">Athletics Kenya</p>
+              </div>
+              <div class="absolute left-0 md:left-1/2 w-6 h-6 gold-gradient rounded-full transform md:-translate-x-1/2 border-4 border-black z-10"></div>
+              <div class="md:w-1/2 md:pr-12 md:text-right pl-8 md:pl-0">
+                <div class="glass-card p-6 rounded-xl">
+                  <h4 class="text-[#D4AF37] font-semibold mb-4 md:text-right">Key Achievements:</h4>
+                  <ul class="space-y-3 text-white/80">
+                    <li class="flex items-start gap-2 md:flex-row-reverse md:text-right">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Accomplished successful officiating across major national athletics events
+                    </li>
+                    <li class="flex items-start gap-2 md:flex-row-reverse md:text-right">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Maintained consistent selection for competitions
+                    </li>
+                    <li class="flex items-start gap-2 md:flex-row-reverse md:text-right">
+                      <span class="text-[#D4AF37] mt-1">▸</span>
+                      Events: Kipkeino Classic, Sirikwa Classic, Nairobi City Run, Great Chepsait Cross Country
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 5 -->
+          <div class="relative">
+            <div class="flex flex-col md:flex-row items-start gap-8">
+              <div class="md:w-1/2 md:text-right md:pr-12">
+                <span class="inline-block px-4 py-1 purple-gradient text-white text-sm font-bold rounded-full mb-4">Aug 2022</span>
+                <h3 class="font-orbitron text-2xl font-bold text-white mb-2">Clerk</h3>
+                <p class="text-gradient-purple font-semibold text-lg mb-4">Independent Electoral and Boundaries Commission (IEBC)</p>
+              </div>
+              <div class="absolute left-0 md:left-1/2 w-6 h-6 purple-gradient rounded-full transform md:-translate-x-1/2 border-4 border-black z-10"></div>
+              <div class="md:w-1/2 md:pl-12 pl-8">
+                <div class="glass-card p-6 rounded-xl">
+                  <h4 class="text-[#6A0DAD] font-semibold mb-4">Key Achievements:</h4>
+                  <ul class="space-y-3 text-white/80">
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#6A0DAD] mt-1">▸</span>
+                      Accomplished voter verification coordination
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#6A0DAD] mt-1">▸</span>
+                      Achieved 100% data accuracy
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#6A0DAD] mt-1">▸</span>
+                      Managed KIEMS-based voter lookup processes
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="relative py-24 px-6 bg-[#0A192F]">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="text-[#D4AF37] font-medium text-sm tracking-widest uppercase">What I've Built</span>
+          <h2 class="font-orbitron text-4xl md:text-5xl font-bold text-white mt-4">Featured Projects</h2>
+          <div class="w-24 h-1 gold-gradient mx-auto mt-6 rounded-full"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1: CodeGenie -->
+          <div class="project-card glass-card rounded-2xl overflow-hidden group">
+            <div class="h-48 bg-gradient-to-br from-[#D4AF37]/20 to-[#6A0DAD]/20 flex items-center justify-center relative overflow-hidden">
+              <img src="images/codegenie.png" alt="CodeGenie" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-orbitron text-xl font-bold text-white">CodeGenie</h3>
+                <span class="px-3 py-1 text-xs gold-gradient text-black rounded-full font-semibold">AI-Powered</span>
+              </div>
+              <p class="text-white/60 text-sm mb-4">VS Code Extension</p>
+              <p class="text-white/80 mb-6 text-sm leading-relaxed">AI coding assistant integrated into VS Code that supports local language coding and developer guidance.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">JavaScript</span>
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">VS Code API</span>
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">AI Integration</span>
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">Supabase</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://marketplace.visualstudio.com/items?itemName=CollinLagat.codegenie-ai-plugin" target="_blank" rel="noopener noreferrer" class="btn-primary flex-1 text-center px-4 py-2 gold-gradient text-black rounded-lg text-sm font-semibold">
+                  View Demo
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-primary flex-1 text-center px-4 py-2 glass-card border border-white/20 text-white rounded-lg text-sm font-semibold hover:border-[#D4AF37]">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 2: QuickPrint -->
+          <div class="project-card glass-card rounded-2xl overflow-hidden group">
+            <div class="h-48 bg-gradient-to-br from-[#6A0DAD]/20 to-[#D4AF37]/20 flex items-center justify-center relative overflow-hidden">
+              <img src="images/quickprint.png" alt="QuickPrint" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-orbitron text-xl font-bold text-white">QuickPrint</h3>
+                <span class="px-3 py-1 text-xs purple-gradient text-white rounded-full font-semibold">Platform</span>
+              </div>
+              <p class="text-white/60 text-sm mb-4">Printing Service Automation</p>
+              <p class="text-white/80 mb-6 text-sm leading-relaxed">Automated printing service platform designed to streamline operations for cyber cafés and print shops.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">React.js</span>
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">Node.js</span>
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">Firebase</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://www.quickprint.top/" target="_blank" rel="noopener noreferrer" class="btn-primary flex-1 text-center px-4 py-2 purple-gradient text-white rounded-lg text-sm font-semibold">
+                  View Demo
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-primary flex-1 text-center px-4 py-2 glass-card border border-white/20 text-white rounded-lg text-sm font-semibold hover:border-[#6A0DAD]">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 3: StockFlow -->
+          <div class="project-card glass-card rounded-2xl overflow-hidden group">
+            <div class="h-48 bg-gradient-to-br from-[#D4AF37]/20 to-[#6A0DAD]/20 flex items-center justify-center relative overflow-hidden">
+              <img src="images/stockflow.png" alt="StockFlow" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-orbitron text-xl font-bold text-white">StockFlow</h3>
+                <span class="px-3 py-1 text-xs gold-gradient text-black rounded-full font-semibold">SME Tool</span>
+              </div>
+              <p class="text-white/60 text-sm mb-4">Inventory Management</p>
+              <p class="text-white/80 mb-6 text-sm leading-relaxed">Smart inventory and stock management system designed for small and medium enterprises.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">Next.js</span>
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">Supabase</span>
+                <span class="px-2 py-1 text-xs bg-white/10 rounded text-white/70">TypeScript</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://inventory-system-kappa-weld.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary flex-1 text-center px-4 py-2 gold-gradient text-black rounded-lg text-sm font-semibold">
+                  View Demo
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-primary flex-1 text-center px-4 py-2 glass-card border border-white/20 text-white rounded-lg text-sm font-semibold hover:border-[#D4AF37]">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 4: Mavuno Insight -->
+          <div class="project-card glass-card rounded-2xl overflow-hidden group md:col-span-2 lg:col-span-3">
+            <div class="md:flex">
+              <div class="md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-[#6A0DAD]/30 to-[#D4AF37]/30 flex items-center justify-center relative overflow-hidden">
+                <img src="images/mavuno.png" alt="Mavuno Insight" class="w-full h-full object-cover">
+              </div>
+              <div class="md:w-2/3 p-8">
+                <div class="flex items-center gap-4 mb-4">
+                  <h3 class="font-orbitron text-2xl font-bold text-white">Mavuno Insight</h3>
+                  <span class="px-3 py-1 text-xs bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] rounded-full font-semibold">Prototype</span>
+                </div>
+                <p class="text-white/60 text-sm mb-4">Agricultural AI Platform</p>
+                <p class="text-white/80 mb-6 leading-relaxed">AI-powered agricultural insights platform designed to help farmers make data-driven decisions for better crop yields and sustainable farming practices.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 text-sm bg-white/10 rounded text-white/70">AI/ML</span>
+                  <span class="px-3 py-1 text-sm bg-white/10 rounded text-white/70">React.js</span>
+                  <span class="px-3 py-1 text-sm bg-white/10 rounded text-white/70">Python</span>
+                  <span class="px-3 py-1 text-sm bg-white/10 rounded text-white/70">Data Analytics</span>
+                </div>
+                <div class="flex gap-4">
+                  <a href="https://mavuno-turudi-mashambani.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 gold-gradient text-black rounded-lg font-semibold">
+                    View Prototype
+                  </a>
+                  <a href="https://mavuno-turudi-mashambani.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3 glass-card border border-white/20 text-white rounded-lg font-semibold hover:border-[#D4AF37]">
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="relative py-24 px-6 bg-black">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="text-[#D4AF37] font-medium text-sm tracking-widest uppercase">My Background</span>
+          <h2 class="font-orbitron text-4xl md:text-5xl font-bold text-white mt-4">Education</h2>
+          <div class="w-24 h-1 gold-gradient mx-auto mt-6 rounded-full"></div>
+        </div>
+        
+        <div class="space-y-8">
+          <!-- Degree -->
+          <div class="glass-card p-8 rounded-2xl border-l-4 border-[#D4AF37] hover:border-l-8 transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <span class="text-[#D4AF37] text-sm font-semibold">Higher Education</span>
+                <h3 class="font-orbitron text-2xl font-bold text-white mt-2">BSc Information Technology</h3>
+                <p class="text-white/60 mt-1">Umma University</p>
+              </div>
+              <div class="text-4xl">🎓</div>
+            </div>
+          </div>
+          
+          <!-- Professional Certification -->
+          <div class="glass-card p-8 rounded-2xl border-l-4 border-[#6A0DAD] hover:border-l-8 transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <span class="text-[#6A0DAD] text-sm font-semibold">Professional Certification</span>
+                <h3 class="font-orbitron text-2xl font-bold text-white mt-2">DevOps Engineering</h3>
+                <p class="text-white/60 mt-1">DevOps Easy Learning (USA)</p>
+              </div>
+              <div class="text-4xl">📜</div>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Secondary -->
+            <div class="glass-card p-6 rounded-2xl">
+              <span class="text-[#D4AF37] text-sm font-semibold">Secondary Education</span>
+              <h3 class="font-orbitron text-xl font-bold text-white mt-2">St Patrick's – Iten</h3>
+              <p class="text-white/60 text-sm mt-1">High School</p>
+            </div>
+            
+            <!-- Primary -->
+            <div class="glass-card p-6 rounded-2xl">
+              <span class="text-[#6A0DAD] text-sm font-semibold">Primary Education</span>
+              <h3 class="font-orbitron text-xl font-bold text-white mt-2">St Matthews – Septonok</h3>
+              <p class="text-white/60 text-sm mt-1">Primary School</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES SECTION -->
+    <section id="hobbies" class="relative py-24 px-6 bg-[#0A192F]">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="text-[#D4AF37] font-medium text-sm tracking-widest uppercase">Beyond Code</span>
+          <h2 class="font-orbitron text-4xl md:text-5xl font-bold text-white mt-4">Hobbies & Interests</h2>
+          <div class="w-24 h-1 gold-gradient mx-auto mt-6 rounded-full"></div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="hobby-card glass-card p-6 rounded-2xl text-center cursor-default">
+            <div class="text-5xl mb-4">⌨️</div>
+            <h3 class="font-semibold text-white mb-1">Competitive Typing</h3>
+            <p class="text-gradient-gold font-bold">91 WPM</p>
+          </div>
+          
+          <div class="hobby-card glass-card p-6 rounded-2xl text-center cursor-default">
+            <div class="text-5xl mb-4">🎮</div>
+            <h3 class="font-semibold text-white mb-1">Strategy Gaming</h3>
+            <p class="text-white/60 text-sm">Chess & RTS</p>
+          </div>
+          
+          <div class="hobby-card glass-card p-6 rounded-2xl text-center cursor-default">
+            <div class="text-5xl mb-4">🌿</div>
+            <h3 class="font-semibold text-white mb-1">Nature Walks</h3>
+            <p class="text-white/60 text-sm">Exploring Outdoors</p>
+          </div>
+          
+          <div class="hobby-card glass-card p-6 rounded-2xl text-center cursor-default">
+            <div class="text-5xl mb-4">🚗</div>
+            <h3 class="font-semibold text-white mb-1">Road Trips</h3>
+            <p class="text-white/60 text-sm">Adventure Seeker</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="relative py-24 px-6 bg-black">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="text-[#D4AF37] font-medium text-sm tracking-widest uppercase">Get In Touch</span>
+          <h2 class="font-orbitron text-4xl md:text-5xl font-bold text-white mt-4">Let's Work Together</h2>
+          <div class="w-24 h-1 gold-gradient mx-auto mt-6 rounded-full"></div>
+          <p class="text-white/70 mt-8 max-w-2xl mx-auto">Ready to bring your ideas to life? Whether you need AI automation solutions, custom software development, or want to discuss collaboration opportunities, I'd love to hear from you.</p>
+        </div>
+        
+        <div class="glass-card p-8 md:p-12 rounded-3xl">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-white/80 text-sm font-medium mb-2">Your Name</label>
+                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#D4AF37] focus:outline-none transition-colors" placeholder="John Doe">
+              </div>
+              <div>
+                <label for="email" class="block text-white/80 text-sm font-medium mb-2">Your Email</label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#D4AF37] focus:outline-none transition-colors" placeholder="john@example.com">
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block text-white/80 text-sm font-medium mb-2">Subject</label>
+              <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#D4AF37] focus:outline-none transition-colors" placeholder="Project Inquiry">
+            </div>
+            <div>
+              <label for="message" class="block text-white/80 text-sm font-medium mb-2">Message</label>
+              <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#D4AF37] focus:outline-none transition-colors resize-none" placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full md:w-auto px-12 py-4 gold-gradient text-black rounded-xl font-bold text-lg animate-pulse-glow">
+              Send Message
+            </button>
+          </form>
+          
+          <!-- Contact Info -->
+          <div class="mt-12 pt-8 border-t border-white/10">
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+              <a href="tel:0708889016" class="group">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-full gold-gradient flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </div>
+                <p class="text-white font-medium">0708889016</p>
+              </a>
+              <a href="mailto:collinslagat1901@gmail.com" class="group">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-full purple-gradient flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </div>
+                <p class="text-white font-medium text-sm">collinslagat1901@gmail.com</p>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="group">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-full gold-gradient flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </div>
+                <p class="text-white font-medium">LinkedIn</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative py-12 px-6 bg-[#0A192F] border-t border-white/10">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <img src="images/icon.png" alt="Collins Kipkirui Lagat" class="h-8 w-8 object-contain">
+            <span class="text-white/40">|</span>
+            <span class="text-white/60 text-sm">Software Engineer & AI Automation Expert</span>
+          </div>
+          <div class="flex items-center gap-6">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-[#D4AF37] transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-[#D4AF37] transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="mailto:collinslagat1901@gmail.com" class="text-white/40 hover:text-[#D4AF37] transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-white/10 text-center">
+          <p class="text-white/40 text-sm">© 2025 Collins Kipkirui Lagat. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "aKvvj5-jhk8txeQul",
+      });
+   })();
+</script>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      hero_name: "COLLINS KIPKIRUI",
+      hero_tagline: "\"Building scalable AI-driven software solutions that help businesses automate, grow, and innovate.\"",
+      about_summary: "Software Engineer and Co-Founder with proven experience designing and developing real-world software and automation solutions. Skilled in full-stack development, DevOps infrastructure, and AI product engineering. Focused on building scalable digital tools that save time, reduce operational costs, and help SMEs adopt technology efficiently.",
+      contact_phone: "0708889016",
+      contact_email: "collinslagat1901@gmail.com"
+    };
+
+    // Apply config to DOM
+    async function onConfigChange(config) {
+      const heroName = document.getElementById('hero-name');
+      const heroTagline = document.getElementById('hero-tagline');
+      const aboutSummary = document.getElementById('about-summary');
+      const contactPhone = document.getElementById('contact-phone');
+      const contactEmail = document.getElementById('contact-email');
+
+      if (heroName) heroName.textContent = config.hero_name || defaultConfig.hero_name;
+      if (heroTagline) heroTagline.textContent = config.hero_tagline || defaultConfig.hero_tagline;
+      if (aboutSummary) aboutSummary.textContent = config.about_summary || defaultConfig.about_summary;
+      if (contactPhone) contactPhone.textContent = config.contact_phone || defaultConfig.contact_phone;
+      if (contactEmail) contactEmail.textContent = config.contact_email || defaultConfig.contact_email;
+    }
+
+    // Map to capabilities
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    // Map to edit panel values
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["hero_name", config.hero_name || defaultConfig.hero_name],
+        ["hero_tagline", config.hero_tagline || defaultConfig.hero_tagline],
+        ["about_summary", config.about_summary || defaultConfig.about_summary],
+        ["contact_phone", config.contact_phone || defaultConfig.contact_phone],
+        ["contact_email", config.contact_email || defaultConfig.contact_email]
+      ]);
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Contact form handling with EmailJS
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        emailjs.sendForm('service_hlvkwg4', 'template_tt1bcs8', contactForm)
+          .then(() => {
+            submitBtn.textContent = 'Message Sent! ✓';
+            submitBtn.style.background = '#22c55e';
+            contactForm.reset();
+            
+            setTimeout(() => {
+              submitBtn.textContent = originalText;
+              submitBtn.style.background = '';
+              submitBtn.disabled = false;
+            }, 3000);
+          })
+          .catch((error) => {
+            submitBtn.textContent = 'Failed to Send';
+            submitBtn.style.background = '#ef4444';
+            console.error('EmailJS error:', error);
+            
+            setTimeout(() => {
+              submitBtn.textContent = originalText;
+              submitBtn.style.background = '';
+              submitBtn.disabled = false;
+            }, 3000);
+          });
+      });
+    }
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections for scroll animations
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(30px)';
+      section.style.transition = 'all 0.8s ease-out';
+      observer.observe(section);
+    });
+
+    // Make hero section visible immediately
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+      heroSection.style.opacity = '1';
+      heroSection.style.transform = 'translateY(0)';
+    }
+
+    // Initialize per-letter typewriter animations for title elements
+    function initTypewriters() {
+      document.querySelectorAll('.typewriter').forEach(el => {
+        const text = el.dataset.text || el.textContent || '';
+        // preserve explicit empty states
+        el.textContent = '';
+        for (let i = 0; i < text.length; i++) {
+          const ch = text[i];
+          const span = document.createElement('span');
+          span.className = 'char';
+          span.textContent = ch;
+          // stagger letters so each animates independently
+          span.style.animationDelay = (i * 0.08) + 's';
+          el.appendChild(span);
+        }
+      });
+    }
+
+    // Run after DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTypewriters);
+    } else {
+      initTypewriters();
+    }
+  </script>
+</body>
+</html>
